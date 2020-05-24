@@ -1,0 +1,4 @@
+h1 Articles#index
+- @articles.each do |article|
+  = link_to article.title, article_path(article.id)
+  hr
