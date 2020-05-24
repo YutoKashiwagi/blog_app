@@ -55,7 +55,7 @@ RSpec.describe "Articles", type: :request do
         end.to change(Article, :count).by(1)
       end
     end
-    
+
     describe 'ログインしていない時' do
       before { post articles_path, params: { article: { title: 'hoge', content: 'hoge' } } }
 
@@ -98,7 +98,7 @@ RSpec.describe "Articles", type: :request do
       context '本人の場合' do
         before do
           sign_in user
-          patch article_path(article.id), params: { article: { title:'hoge', context: 'hoge' } }
+          patch article_path(article.id), params: { article: { title: 'hoge', context: 'hoge' } }
         end
 
         example '正常に編集できること' do
@@ -113,14 +113,16 @@ RSpec.describe "Articles", type: :request do
 
         example 'エラーが発生すること' do
           expect do
-            patch article_path(article.id), params: { article: { title:'hoge', context: 'hoge' } }
+            patch article_path(article.id), params: { article: { title: 'hoge', context: 'hoge' } }
           end.to raise_error ActiveRecord::RecordNotFound
         end
       end
     end
 
     describe 'ログインしていない時' do
-      before { patch article_path(article.id), params: { article: { title:'hoge', context: 'hoge' } } }
+      before do
+        patch article_path(article.id), params: { article: { title: 'hoge', context: 'hoge' } }
+      end
 
       it_behaves_like 'サインイン画面へリダイレクトされること'
     end
