@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :article do
-    user { nil }
+    association :user
     title { "MyString" }
     content { "MyText" }
     article_image { "MyString" }
