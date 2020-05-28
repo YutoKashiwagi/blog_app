@@ -28,4 +28,18 @@ RSpec.describe User, type: :model do
       end
     end
   end
+
+  describe 'アソシエーション' do
+    describe '削除' do
+      describe 'article' do
+        let!(:user) { create(:user) }
+        let!(:article) { create(:article, user: user) }
+
+        example 'ユーザーを削除すると、紐づいた記事も削除されること' do
+          expect(user.articles.count).to eq 1
+          expect { user.destroy! }.to change(Article, :count).by(-1)
+        end
+      end
+    end
+  end
 end

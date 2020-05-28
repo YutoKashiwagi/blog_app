@@ -1,0 +1,8 @@
+h1 Articles#show
+h2= @article.title
+- if @article.article_image?
+  = image_tag @article.article_image.url, size: '400x400'
+p= simple_format @article.content
+- if current_user == @user
+  p= link_to '編集', edit_article_path(@article.id)
+  P= link_to '削除', article_path(@article.id), method: :delete, data: { confirm: '削除しますか？' }
