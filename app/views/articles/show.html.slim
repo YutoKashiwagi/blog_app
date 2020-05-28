@@ -10,3 +10,17 @@ p= 'Auther: ' + @user.name
 - if current_user == @user
   p= link_to '編集', edit_article_path(@article.id)
   P= link_to '削除', article_path(@article.id), method: :delete, data: { confirm: '削除しますか？' }
+
+h2 Comments
+- @comments.each do |comment|
+  hr
+  div class="comment_#{comment.id}"
+    P= 'User: ' + comment.user.name
+    p= 'Date: ' + comment.created_at.to_s(:datetime_jp)
+    p= comment.content
+    - if current_user == comment.user
+      p= link_to '編集', edit_comment_path(comment.id)
+      p= link_to '削除', comment_path(comment.id), method: :delete, data: { confirm: '削除しますか？' }
+
+- if user_signed_in?
+  = render partial: 'articles/comment_form', locals: { article: @article, comment: @comment }

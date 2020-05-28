@@ -6,5 +6,7 @@ Rails.application.routes.draw do
     sessions: 'users/sessions',
   }
 
-  resources :articles
+  resources :articles, shallow: true do
+    resources :comments, only: [:create, :destroy, :edit, :update]
+  end
 end
