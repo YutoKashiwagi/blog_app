@@ -17,3 +17,5 @@ AllCops:
 # 日本語のコメントを許可する
 Style/AsciiComments:
   Enabled: false
+Metrics/LineLength:
+  Max: 120
