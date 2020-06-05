@@ -1,5 +1,7 @@
 # README
 
+練習用なのでブランチを切ったらmasterブランチにPRを出して良いとする
+
 ## URL
 https://kashiwagi-blog-app.herokuapp.com/
 
