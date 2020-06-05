@@ -28,6 +28,7 @@ gem 'slim-rails'
 gem 'html2slim'
 gem 'devise'
 gem 'carrierwave', '~> 2.0'
+gem 'mini_magick'
 
 group :development, :test do
   gem 'sqlite3'
