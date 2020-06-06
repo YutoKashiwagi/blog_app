@@ -2,7 +2,7 @@ h1 Articles#show
 h2= @article.title
 hr
 - if @article.article_image?
-  = image_tag @article.article_image.url, size: '400x400'
+  = image_tag @article.article_image.url
 p= simple_format @article.content
 hr
 P= 'Date: ' + @article.created_at.to_s(:datetime_jp)
