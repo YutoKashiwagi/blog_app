@@ -27,7 +27,7 @@ gem 'slim-rails'
 # erb→slim記法に変換するためのgem
 gem 'html2slim'
 gem 'devise'
-gem 'carrierwave', '~> 2.0'
+gem 'carrierwave', '~> 2.1'
 gem 'mini_magick'
 
 group :development, :test do
